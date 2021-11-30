@@ -19,24 +19,32 @@ ActiveRecord::Schema.define(version: 2021_11_30_075329) do
     t.string "name"
     t.boolean "has_ski_resort"
     t.integer "included_states"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mountains", force: :cascade do |t|
     t.string "name"
     t.boolean "volcanic"
     t.integer "elevation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "soccer_players", force: :cascade do |t|
     t.string "name"
     t.boolean "homegrown_player"
     t.integer "games_played"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "soccer_teams", force: :cascade do |t|
     t.string "name"
     t.boolean "qualified_champ_league"
     t.integer "points"
+    t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
   end
 
 end
