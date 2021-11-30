@@ -17,4 +17,7 @@ class SoccerTeamsController < ApplicationController
 
     redirect_to '/soccer_teams'
   end
+  
+  def show
+  end
 end

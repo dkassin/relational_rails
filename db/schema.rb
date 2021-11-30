@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_013400) do
+ActiveRecord::Schema.define(version: 2021_11_30_075329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2021_11_30_013400) do
     t.string "name"
     t.boolean "has_ski_resort"
     t.integer "included_states"
+  end
+
+  create_table "mountains", force: :cascade do |t|
+    t.string "name"
+    t.boolean "volcanic"
+    t.integer "elevation"
+  end
+
+  create_table "soccer_players", force: :cascade do |t|
+    t.string "name"
+    t.boolean "homegrown_player"
+    t.integer "games_played"
   end
 
   create_table "soccer_teams", force: :cascade do |t|
