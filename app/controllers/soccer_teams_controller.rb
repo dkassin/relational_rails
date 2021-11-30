@@ -17,7 +17,8 @@ class SoccerTeamsController < ApplicationController
 
     redirect_to '/soccer_teams'
   end
-  
+
   def show
+    @soccer_teams = SoccerTeam.find(params[:id])
   end
 end
