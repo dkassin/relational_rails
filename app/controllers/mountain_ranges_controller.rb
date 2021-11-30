@@ -1,6 +1,6 @@
 class MountainRangesController < ApplicationController
   def index
-    @mountain_ranges = MountainRange.all 
+    @mountain_ranges = MountainRange.all
   end
 
   def new
@@ -16,5 +16,9 @@ class MountainRangesController < ApplicationController
     mountain_range.save
 
     redirect_to '/mountain_ranges'
+  end
+
+  def show
+    @mountain_range = MountainRange.find(params[:id])
   end
 end
