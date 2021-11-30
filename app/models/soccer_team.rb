@@ -1,3 +1,3 @@
 class SoccerTeam < ApplicationRecord
 
-end 
+end
