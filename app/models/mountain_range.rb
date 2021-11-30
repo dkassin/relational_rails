@@ -1,3 +1,3 @@
-class MountainRange < ActiveRecord
+class MountainRange < ApplicationRecord
 
-end 
+end
