@@ -1,5 +1,19 @@
-<h1>All Mountain Ranges</h1>
 
-<% @mountain_ranges.each do |range| %>
-  <h3><%= range %></h3>
-<% end %>
+<html style="background-color:black">
+  <body style="background-color:black;">
+    <h1 style="color:yellow;text-decoration:underline;">All Mountain Ranges</h1>
+
+    <% @mountain_ranges.each do |range| %>
+      <h2><a  style="color:green;"href="/mountain_ranges/<%= range.id %>"><%= range.name %></a></h2>
+      <p>
+        <span style="text-decoration:underline;color:white;">Has ski a ski resort:</span>
+        <span style="color:blue;"> <%= range.has_ski_resort %></span>
+      </p>
+      <p>
+        <span style="text-decoration:underline;color:white;">States that the Mountain Range covers:</span>
+        <span style="color:blue;"> <%= range.included_states %></span>
+      </p>
+    <% end %><br><br>
+    <a href="/mountain_ranges/new"><input type="submit" style="font-size:20px;font-weight:bold;color:yellow;" value="Add another Mountain Range"/></a>
+  </body>
+</html>

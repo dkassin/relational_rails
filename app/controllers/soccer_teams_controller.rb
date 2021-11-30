@@ -1,6 +1,6 @@
 class SoccerTeamsController < ApplicationController
   def index
-    @soccer_teams = ['Soccer Team 1', 'Soccer Team 2', 'Soccer Team 3']
+    @soccer_teams = SoccerTeam.all
   end
 
   def new
@@ -16,5 +16,8 @@ class SoccerTeamsController < ApplicationController
     soccer_team.save
 
     redirect_to '/soccer_teams'
+  end
+  
+  def show
   end
 end

@@ -1,0 +1,21 @@
+
+<html style="background-color:black">
+  <body style="background-color:black;">
+    <h1 style="color:yellow;text-decoration:underline;">All Mountains</h1>
+
+    <% @mountains.each do |mountain| %>
+      <h2><a  style="color:green;"href="/mountains/<%= mountain.id %>"><%= mountain.name %></a></h2>
+      <p>
+        <span style="text-decoration:underline;color:white;">If the mountain is volcanic:</span>
+        <span style="color:blue;"> <%= mountain.volcanic %></span>
+      </p>
+      <p>
+        <span style="text-decoration:underline;color:white;">The mountain's elevation:</span>
+        <span style="color:blue;"> <%= mountain.elevation %></span>
+      </p>
+    <% end %><br><br>
+    <a href="/mountains/new"><input type="submit" style="font-size:20px;font-weight:bold;color:yellow;" value="Add another mountain"/></a><br><br>
+    <a style="color:white;" href="/mountain_ranges">Mountain Range Index</a>
+
+  </body>
+</html>
