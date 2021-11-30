@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/mountains/new', to: 'mountains#new'
   post '/soccer_players', to: 'soccer_players#create'
   post '/mountains', to: 'mountains#create'
-  get '/soccer_players/:id', to: "soccer_player#show"
+  get '/soccer_players/:id', to: "soccer_players#show"
   get '/mountains/:id', to: "mountains#show"
 
 end
