@@ -1,0 +1,10 @@
+<form action="/mountain_ranges" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new Mountain Range:</p>
+  <input type='text' name='mountain_ranges[name]'/><br/>
+  <p>Has ski resort(True/False):</p>
+  <input type='text' name='mountain_ranges[has_ski_resort]'/><br/>
+  <p>Number of states included in:</p>
+  <input type='text' name='mountain_ranges[included_states]'/><br/>
+  <input type='submit'/>
+</form>
