@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_234534) do
+ActiveRecord::Schema.define(version: 2021_12_01_043120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,20 @@ ActiveRecord::Schema.define(version: 2021_11_30_234534) do
     t.string "name"
     t.boolean "volcanic"
     t.integer "elevation"
-    t.datetime "updated_at", null: false
+    t.bigint "mountain_range_id"
     t.datetime "created_at", null: false
-    t.bigint "mountain_ranges_id"
-    t.index ["mountain_ranges_id"], name: "index_mountains_on_mountain_ranges_id"
+    t.datetime "updated_at", null: false
+    t.index ["mountain_range_id"], name: "index_mountains_on_mountain_range_id"
   end
 
   create_table "soccer_players", force: :cascade do |t|
     t.string "name"
     t.boolean "homegrown_player"
     t.integer "games_played"
+    t.bigint "soccer_team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "soccer_teams_id"
-    t.index ["soccer_teams_id"], name: "index_soccer_players_on_soccer_teams_id"
+    t.index ["soccer_team_id"], name: "index_soccer_players_on_soccer_team_id"
   end
 
   create_table "soccer_teams", force: :cascade do |t|
@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_234534) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "mountains", "mountain_ranges", column: "mountain_ranges_id"
-  add_foreign_key "soccer_players", "soccer_teams", column: "soccer_teams_id"
+  add_foreign_key "mountains", "mountain_ranges"
+  add_foreign_key "soccer_players", "soccer_teams"
 end
