@@ -5,3 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+SoccerTeam.destroy_all
+SoccerPlayer.destroy_all
+
+rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
+bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
+cad = SoccerTeam.create!(name: 'Cadiz CF', qualified_champ_league: false, points: 22)
+bet = SoccerTeam.create!(name: 'Real Betis', qualified_champ_league: false, points: 11)
+am = SoccerTeam.create!(name: 'Aletico Madrid', qualified_champ_league: true, points: 28)
+
+# rm.soccer_players.create!(name: 'Jimmy G', homegrown_player: false, games_played: 23)
+# rm.soccer_players.create!(name: 'Jay C', homegrown_player: true, games_played: 67)
+#
+# bar.soccer_players.create!(name: 'Cay C', homegrown_player: true, games_played: 86)
+# bar.soccer_players.create!(name: 'Rob C', homegrown_player: true, games_played: 64)
+# bar.soccer_players.create!(name: 'Jose R', homegrown_player: false, games_played: 14)
+# 
+# cad.soccer_players.create!(name: 'Luis C', homegrown_player: false, games_played: 14)
+# cad.soccer_players.create!(name: 'Romeo F', homegrown_player: true, games_played: 34)
+# cad.soccer_players.create!(name: 'Tim G', homegrown_player: false, games_played: 124)
+#
+# bet.soccer_players.create!(name: 'Jun F', homegrown_player: true, games_played: 202)
+#
+# am.soccer_players.create!(name: 'Sam G', homegrown_player: false, games_played: 224)
+# am.soccer_players.create!(name: 'Ron L', homegrown_player: true, games_played: 104)
+
+MountainRange.destroy_all
+Mountain.destroy_all
+
+rocky = MountainRange.create!(name: "Rocky Mountains", has_ski_resort: true, included_states: 4)
+appalachian = MountainRange.create!(name: "Appalachian Mountains", has_ski_resort: true, included_states: 12)
+cascade = MountainRange.create!(name: "Cascade Range", has_ski_resort: true, included_states: 3)
+sierra = MountainRange.create!(name: "Sierra Nevada", has_ski_resort: false, included_states: 1)
+
+rocky.mountains.create!(name: "Rey", volcanic: true, elevation: 12311)
+rocky.mountains.create!(name: "Kathy", volcanic: true, elevation: 13311)
