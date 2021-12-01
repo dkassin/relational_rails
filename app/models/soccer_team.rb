@@ -1,3 +1,0 @@
-class SoccerTeam < ApplicationRecord
-
-end

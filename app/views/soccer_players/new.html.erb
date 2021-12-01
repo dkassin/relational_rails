@@ -1,0 +1,12 @@
+<form action="/soccer_players" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new Soccer Player:</p>
+  <input type='text' name='soccer_players[name]'/><br/>
+  <p>Is a homegrown player?(True/False):</p>
+  <input type='text' name='soccer_players[homegrown_player]'/><br/>
+  <p>Number of game played:</p>
+  <input type='text' name='soccer_players[games_played]'/><br/>
+  <p>Current Team:</p>
+  <input type='text' name='soccer_players[soccer_teams_id]'/><br/>
+  <input type='submit'/>
+</form>

@@ -10,11 +10,16 @@ class SoccerPlayersController < ApplicationController
     soccer_player = SoccerPlayer.new({
       name: params[:soccer_players][:name],
       homegrown_player: params[:soccer_players][:homegrown_player],
-      games_played: params[:soccer_players][:games_played]
+      games_played: params[:soccer_players][:games_played],
+      soccer_teams_id: params[:soccer_players][:soccer_teams_id]
       })
 
     soccer_player.save
-
     redirect_to '/soccer_players'
   end
+
+  def show
+    @soccer_players = SoccerPlayer.find(params[:id])
+  end
+
 end
