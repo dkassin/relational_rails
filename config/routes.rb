@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post '/mountains', to: 'mountains#create'
   get '/soccer_players/:id', to: "soccer_players#show"
   get '/mountains/:id', to: "mountains#show"
+  get '/soccer_teams/:id/soccer_players', to: "soccer_players#show"
 
 end
