@@ -4,6 +4,8 @@ class CreateMountainRange < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :has_ski_resort
       t.integer :included_states
+
+      t.timestamps
     end
   end
 end

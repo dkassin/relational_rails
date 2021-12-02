@@ -1,7 +1,24 @@
-<h1>All Soccer Teams</h1>
 
-<% @soccer_teams.each do |team| %>
-  <h3><%= team.name %></h3>
-  <p><%= team.qualified_champ_league %></p>
-  <p><%= team.points %></p>
-<% end %>
+<html style="background-color:white">
+  <body style="background-color:white;">
+    <h1 style="color:blue;text-decoration:underline;">All Soccer Teams</h1>
+
+    <% @soccer_teams.each do |team| %>
+      <h2><a  style="color:green;"href="/soccer_teams/<%= team.id %>"><%= team.name %></a></h2>
+      <p>
+        <span style="text-decoration:underline;color:blue;">Qualified for the Champions League?</span>
+        <span style="color:blue;"> <%= team.qualified_champ_league %></span>
+      </p>
+      <p>
+        <span style="text-decoration:underline;color:blue;">Points in the league table:</span>
+        <span style="color:blue;"> <%= team.points %></span>
+      </p>
+      <p>
+        <span style="text-decoration:underline;color:blue;">Created at:</span>
+        <span style="color:blue;"> <%= team.created_at %></span>
+
+      </p>
+    <% end %><br><br>
+    <a href="/soccer_teams/new"><input type="submit" style="font-size:20px;font-weight:bold;color:blue;" value="Add another Soccer Team"/></a>
+  </body>
+</html>

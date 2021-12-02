@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_075329) do
+ActiveRecord::Schema.define(version: 2021_12_01_043120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,24 +27,30 @@ ActiveRecord::Schema.define(version: 2021_11_30_075329) do
     t.string "name"
     t.boolean "volcanic"
     t.integer "elevation"
+    t.bigint "mountain_range_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mountain_range_id"], name: "index_mountains_on_mountain_range_id"
   end
 
   create_table "soccer_players", force: :cascade do |t|
     t.string "name"
     t.boolean "homegrown_player"
     t.integer "games_played"
+    t.bigint "soccer_team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["soccer_team_id"], name: "index_soccer_players_on_soccer_team_id"
   end
 
   create_table "soccer_teams", force: :cascade do |t|
     t.string "name"
     t.boolean "qualified_champ_league"
     t.integer "points"
-    t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "mountains", "mountain_ranges"
+  add_foreign_key "soccer_players", "soccer_teams"
 end

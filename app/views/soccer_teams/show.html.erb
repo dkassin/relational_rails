@@ -1,6 +1,9 @@
 <a href="/soccer_teams">Soccer Team Index</a>
 
-<h1><%= @soccer_teams.name %></h1>
+<h1>Soccer Team Name: <%= @soccer_teams.name %></h1>
+<h2>Qualified for Champions League: <%= @soccer_teams.qualified_champ_league %></h2>
+<h3>Total Points in Table: <%= @soccer_teams.points %></h3>
+<h3>Player Count: <%= @soccer_teams.player_count %></h3>
+<a href="/soccer_players">All soccer players with the league</a>
 
-<p><%= @soccer_teams.qualified_champ_league %></p>
-<p><%= @soccer_teams.points %></p>
+<a href= "/soccer_teams/<%= @soccer_teams.id %>/soccer_players"> Soccer Players on Team</a>

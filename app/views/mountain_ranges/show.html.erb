@@ -1,5 +1,8 @@
 <a href="/mountain_ranges">Mountain Range Index</a>
 
-<h1><%= @mountain_range.name %></h1>
+<h1>Name of Mountain Range:<%= @mountain_range.name %></h1>
+<h2>If Mountain Range Has a Ski Resort: <%= @mountain_range.has_ski_resort %></h2>
+<h3>Number of States Included in the Mountain Range: <%= @mountain_range.included_states %></h3>
+<h3>Number of Mountains in Mountain Range: <%= @mountain_range.mountain_count %></h3>
 
-<a href="/mountains">All Mountains Within Range</a>
+<a href= "/mountain_ranges/<%= @mountain_range.id %>/mountains"> Mountains in Mountain Range</a>

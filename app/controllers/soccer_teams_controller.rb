@@ -1,6 +1,6 @@
 class SoccerTeamsController < ApplicationController
   def index
-    @soccer_teams = SoccerTeam.all
+    @soccer_teams = SoccerTeam.sort_team
   end
 
   def new
@@ -17,7 +17,9 @@ class SoccerTeamsController < ApplicationController
 
     redirect_to '/soccer_teams'
   end
-  
+
   def show
+    @soccer_teams = SoccerTeam.find(params[:id])
   end
+
 end
