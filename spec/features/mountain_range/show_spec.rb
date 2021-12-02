@@ -32,4 +32,12 @@ RSpec.describe 'the mountain ranges show web page' do
     expect(page).to have_content(@rocky.mountain_count)
   end
 
+  it "gives a link to go to the mountain range's mountains page" do
+    visit "/mountain_ranges/#{@rocky.id}"
+
+    click_on "Mountains in Mountain Range"
+    expect(current_path).to eq ("/mountain_ranges/#{@rocky.id}/mountains")
+  end
+
+
 end
