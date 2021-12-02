@@ -1,13 +1,13 @@
 class SoccerTeamsController < ApplicationController
   def index
-    @soccer_teams = SoccerTeams.all
+    @soccer_teams = SoccerTeam.all
   end
 
   def new
   end
 
   def create
-    soccer_team = SoccerTeams.new({
+    soccer_team = SoccerTeam.new({
       name: params[:soccer_teams][:name],
       qualified_champ_league: params[:soccer_teams][:qualified_champ_league],
       points: params[:soccer_teams][:points]
@@ -19,6 +19,6 @@ class SoccerTeamsController < ApplicationController
   end
 
   def show
-    @soccer_teams = SoccerTeams.find(params[:id])
+    @soccer_teams = SoccerTeam.find(params[:id])
   end
 end
