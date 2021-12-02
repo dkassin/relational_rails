@@ -30,4 +30,12 @@ RSpec.describe 'the soccer teams index web page' do
     expect(page).to have_content(@am.created_at)
   end
 
+  it "gives links to all indexes for all tables" do
+
+    visit "/soccer_teams"
+    
+    click_on "Mountains Index"
+    expect(current_path).to eq ("/mountains")
+  end
+
 end

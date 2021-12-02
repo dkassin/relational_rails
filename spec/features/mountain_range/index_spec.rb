@@ -28,4 +28,13 @@ RSpec.describe 'the mountain ranges index web page' do
     expect(page).to have_content(@sierra.created_at)
   end
 
+  it "gives links to all indexes for all tables" do
+
+    visit "/mountain_ranges"
+    
+    click_on "Soccer Team Index"
+    expect(current_path).to eq ("/soccer_teams")
+  end
+
+
 end

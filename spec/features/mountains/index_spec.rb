@@ -18,4 +18,13 @@ RSpec.describe 'the mountains index web page' do
     expect(page).to have_content(washington.volcanic)
     expect(page).to have_content(washington.elevation)
   end
+
+  it "gives links to all indexes for all tables" do
+
+    visit "/mountains"
+    
+    click_on "Soccer Team Index"
+    expect(current_path).to eq ("/soccer_teams")
+  end
+
 end
