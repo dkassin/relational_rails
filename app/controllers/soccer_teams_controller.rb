@@ -1,6 +1,6 @@
 class SoccerTeamsController < ApplicationController
   def index
-    @soccer_teams = SoccerTeam.all
+    @soccer_teams = SoccerTeam.sort_team
   end
 
   def new
@@ -21,4 +21,10 @@ class SoccerTeamsController < ApplicationController
   def show
     @soccer_teams = SoccerTeam.find(params[:id])
   end
+
+  def sort
+    x = self.sort_by(:created_at)
+    binding.pry
+  end
+
 end
