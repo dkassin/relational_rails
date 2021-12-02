@@ -25,6 +25,12 @@ RSpec.describe MountainRange do
         expect(all_ranges[0]).to eq @rocky
         expect(all_ranges[1]).to eq @appalachian
       end
+
+      it "counts all mountains within the mountain range" do
+        expect(@rocky.mountain_count).to eq 4
+        expect(@appalachian.mountain_count).to eq 3
+
+      end
     end
   end
 end

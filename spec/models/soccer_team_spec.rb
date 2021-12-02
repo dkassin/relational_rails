@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SoccerTeam do
   it { should have_many :soccer_players}
 
-  describe 'instance methods' do
+  describe 'class methods' do
     describe 'sorted by created date' do
       before :each do
         @rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
@@ -36,6 +36,15 @@ RSpec.describe SoccerTeam do
         expect(all_teams[2]).to eq @cad
         expect(all_teams[3]).to eq @bet
         expect(all_teams[4]).to eq @am
+      end
+
+      it "returns the count of soccer players for team" do
+
+        expect(@rm.player_count).to eq 2
+        expect(@bar.player_count).to eq 3
+        expect(@cad.player_count).to eq 3
+        expect(@bet.player_count).to eq 1
+        expect(@am.player_count).to eq 2
       end
     end
   end

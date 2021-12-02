@@ -20,11 +20,7 @@ class SoccerTeamsController < ApplicationController
 
   def show
     @soccer_teams = SoccerTeam.find(params[:id])
-  end
-
-  def sort
-    x = self.sort_by(:created_at)
-    binding.pry
+    # @player_count = SoccerTeam.player_count
   end
 
 end
