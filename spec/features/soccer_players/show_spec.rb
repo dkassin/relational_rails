@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'the soccer players show web page' do
-  it "will show the mountain and its attributes" do
+  it "will show the soccer player and its attributes" do
     rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
     bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
 
