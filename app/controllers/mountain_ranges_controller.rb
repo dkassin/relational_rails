@@ -1,6 +1,6 @@
 class MountainRangesController < ApplicationController
   def index
-    @mountain_ranges = MountainRange.all
+    @mountain_ranges = MountainRange.sort_range
   end
 
   def new

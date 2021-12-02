@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/soccer_teams/new', to: 'soccer_teams#new'
   post '/soccer_teams', to: 'soccer_teams#create'
   get '/soccer_teams/:id', to: "soccer_teams#show"
-  get '/soccer_teams/:id/soccer_players', to: "soccer_players#show"
+  get '/soccer_teams/:id/soccer_players', to: 'soccer_team_soccer_players#index'
   get '/soccer_players', to: 'soccer_players#index'
   get '/soccer_players/new', to: 'soccer_players#new'
   post '/soccer_players', to: 'soccer_players#create'

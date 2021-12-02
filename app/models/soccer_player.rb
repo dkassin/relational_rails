@@ -1,3 +1,3 @@
 class SoccerPlayer < ApplicationRecord
-  belongs_to :soccer_teams
+  belongs_to :soccer_team
 end

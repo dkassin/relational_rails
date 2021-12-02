@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'the mountain ranges show web page' do
+RSpec.describe "MountainRange Mountains index" do
   before :each do
     @rocky = MountainRange.create!(name: "Rocky Mountains", has_ski_resort: true, included_states: 4)
-    @appalachian = MountainRange.create!(name: "Appalachian Mountains", has_ski_resort: false, included_states: 12)
+    @appalachian = MountainRange.create!(name: "Appalachian Mountains", has_ski_resort: true, included_states: 12)
 
     @pikes = @rocky.mountains.create!(name: "Pikes Peak", volcanic: false, elevation: 14115)
     @longs = @rocky.mountains.create!(name: "Longs Peak", volcanic: false, elevation: 14259)
@@ -14,22 +14,13 @@ RSpec.describe 'the mountain ranges show web page' do
     @mitchell = @appalachian.mountains.create!(name: "Mount Mitchell", volcanic: false, elevation: 6684)
     @katahdin = @appalachian.mountains.create!(name: "Mount Katahdin", volcanic: false, elevation: 5268)
   end
+  
+  it "shows all names for the mountains of the mountain range" do
+    visit "/mountain_ranges/#{@rocky.id}/mountains"
 
-  it "will show the mountain range and its attributes" do
-    visit "/mountain_ranges/#{@rocky.id}"
-
-    expect(page).to have_content(@rocky.name)
-    expect(page).to have_content(@rocky.has_ski_resort)
-    expect(page).to have_content(@rocky.included_states)
-    expect(page).to_not have_content(@appalachian.name)
-    expect(page).to_not have_content(@appalachian.has_ski_resort)
-    expect(page).to_not have_content(@appalachian.included_states)
+    expect(page).to have_content(@pikes.name)
+    expect(page).to have_content(@longs.name)
+    expect(page).to have_content(@bard.name)
+    expect(page).to have_content(@herman.name)
   end
-
-  it "displays the count of the mountains in a mountain range" do
-    visit "/mountain_ranges/#{@rocky.id}"
-
-    expect(page).to have_content(@rocky.mountain_count)
-  end
-
 end

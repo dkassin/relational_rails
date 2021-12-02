@@ -1,5 +1,6 @@
-class MountainRangeMountainsController < ApplicationRecord
+class MountainRangeMountainsController < ApplicationController
   def index
-    @mountain = Mountain.select(params[:mountain_range_id])
-  end 
+    @mountain_range = MountainRange.find(params[:id])
+    @mountains = @mountain_range.mountains
+  end
 end
