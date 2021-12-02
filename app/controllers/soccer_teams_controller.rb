@@ -20,7 +20,6 @@ class SoccerTeamsController < ApplicationController
 
   def show
     @soccer_teams = SoccerTeam.find(params[:id])
-    # @player_count = SoccerTeam.player_count
   end
 
 end

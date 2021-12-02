@@ -14,6 +14,7 @@ RSpec.describe "MountainRange Mountains index" do
     @mitchell = @appalachian.mountains.create!(name: "Mount Mitchell", volcanic: false, elevation: 6684)
     @katahdin = @appalachian.mountains.create!(name: "Mount Katahdin", volcanic: false, elevation: 5268)
   end
+  
   it "shows all names for the mountains of the mountain range" do
     visit "/mountain_ranges/#{@rocky.id}/mountains"
 
@@ -22,4 +23,4 @@ RSpec.describe "MountainRange Mountains index" do
     expect(page).to have_content(@bard.name)
     expect(page).to have_content(@herman.name)
   end
-end 
+end
