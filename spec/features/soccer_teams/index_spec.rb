@@ -33,9 +33,17 @@ RSpec.describe 'the soccer teams index web page' do
   it "gives links to all indexes for all tables" do
 
     visit "/soccer_teams"
-    
+
     click_on "Mountains Index"
     expect(current_path).to eq ("/mountains")
+  end
+
+  it "gives a link to create a soccer team" do
+
+    visit "/soccer_teams"
+
+    click_on "Add another Soccer Team"
+    expect(current_path).to eq ("/soccer_teams/new")
   end
 
 end
