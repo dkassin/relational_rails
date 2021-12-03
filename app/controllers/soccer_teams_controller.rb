@@ -7,10 +7,11 @@ class SoccerTeamsController < ApplicationController
   end
 
   def create
-    soccer_team = SoccerTeam.new({
-      name: params[:soccer_teams][:name],
-      qualified_champ_league: params[:soccer_teams][:qualified_champ_league],
-      points: params[:soccer_teams][:points]
+
+    soccer_team = SoccerTeam.create({
+      name: params[:name],
+      qualified_champ_league: params[:qualified_champ_league],
+      points: params[:points]
       })
 
     soccer_team.save

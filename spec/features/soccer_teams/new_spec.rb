@@ -10,16 +10,17 @@ RSpec.describe 'New Soccer Team' do
 
         expect(current_path).to eq('/soccer_teams/new')
 
-        fill_in('soccer_teams[name]', with: 'Mallorca')
-        fill_in('soccer_teams[qualified_champ_league]', with: false)
-        fill_in('soccer_teams[points]', with: 16)
+        fill_in('name', with: 'Mallorca')
+        fill_in('qualified_champ_league', with: false)
+        fill_in('points', with: 16)
 
-        click_on('submit')
-        require 'pry'; binding.pry
-        soccer_team_id = SoccerTeam.last.id
+        click_on('Create Soccer Team')
 
-        expect(current_path).to eq("/soccer_teams/#{soccer_team_id}")
+
+        expect(current_path).to eq("/soccer_teams")
         expect(page).to have_content("Mallorca")
+        expect(page).to have_content(false)
+        expect(page).to have_content(16)
       end
     end
   end

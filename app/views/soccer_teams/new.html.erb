@@ -1,10 +1,10 @@
-<form action="/soccer_teams" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new Soccer Team:</p>
-  <input type='text' name='soccer_teams[name]'/><br/>
-  <p>Qualified for Champions League(True/False):</p>
-  <input type='text' name='soccer_teams[qualified_champ_league]'/><br/>
-  <p>Points:</p>
-  <input type='text' name='soccer_teams[points]'/><br/>
-  <input type='submit'/>
-</form>
+
+<%= form_with url: "/soccer_teams", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :qualified_champ_league %>
+  <%= form.text_field :qualified_champ_league %>
+  <%= form.label :points %>
+  <%= form.text_field :points %>
+  <%= form.submit 'Create Soccer Team' %>
+<% end %>
