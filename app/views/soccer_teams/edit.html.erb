@@ -1,0 +1,10 @@
+
+<%= form_with url: "/soccer_teams/:id", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :qualified_champ_league %>
+  <%= form.text_field :qualified_champ_league %>
+  <%= form.label :points %>
+  <%= form.text_field :points %>
+  <%= form.submit 'Update Soccer Team' %>
+<% end %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/soccer_teams', to: 'soccer_teams#create'
   get '/soccer_teams/:id', to: 'soccer_teams#show'
   get '/soccer_teams/:id/soccer_players', to: 'soccer_team_soccer_players#index'
+  get '/soccer_teams/:id/edit', to: 'soccer_teams#edit'
+  patch '/soccer_teams/:id', to: 'soccer_teams#update'
 
   get '/soccer_players', to: 'soccer_players#index'
   get '/soccer_players/new', to: 'soccer_players#new'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   post '/mountain_ranges', to: 'mountain_ranges#create'
   get '/mountain_ranges/:id', to: 'mountain_ranges#show'
   get '/mountain_ranges/:id/mountains', to: 'mountain_range_mountains#index'
+  patch '/mountain_ranges/:id/edit', to: 'mountain_ranges#edit'
 
   get '/mountains', to: 'mountains#index'
   get '/mountains/new', to: 'mountains#new'
