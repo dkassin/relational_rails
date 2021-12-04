@@ -28,17 +28,16 @@ class SoccerTeamsController < ApplicationController
   end
 
   def update
-    require 'pry'; binding.pry 
-    @soccer_teams = SoccerTeam.find(params[:id])
-    @soccer_teams.update({
+    soccer_teams = SoccerTeam.find(params[:id])
+    soccer_teams.update({
       name: params[:name],
       qualified_champ_league: params[:qualified_champ_league],
       points: params[:points]
       })
 
-    @soccer_teams.save
+    soccer_teams.save
 
-    redirect_to "/soccer_teams/#{@soccer_teams.id}"
+    redirect_to "/soccer_teams/#{soccer_teams.id}"
   end
 
 end

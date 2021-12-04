@@ -1,0 +1,10 @@
+
+<%= form_with url: "/mountain_ranges/#{@mountain_range.id}/", method: :patch, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<%= form.label :has_ski_resort %>
+<%= form.text_field :has_ski_resort %>
+<%= form.label :included_states %>
+<%= form.text_field :included_states %>
+<%= form.submit 'Update Mountain Range' %>
+<% end %>

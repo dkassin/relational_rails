@@ -1,5 +1,5 @@
 
-<%= form_with url: "/soccer_teams/:id", method: :patch, local: true do |form| %>
+<%= form_with url: "/soccer_teams/#{@soccer_teams.id}/", method: :patch, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.label :qualified_champ_league %>

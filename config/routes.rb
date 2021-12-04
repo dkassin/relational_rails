@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   post '/mountain_ranges', to: 'mountain_ranges#create'
   get '/mountain_ranges/:id', to: 'mountain_ranges#show'
   get '/mountain_ranges/:id/mountains', to: 'mountain_range_mountains#index'
-  patch '/mountain_ranges/:id/edit', to: 'mountain_ranges#edit'
+  get '/mountain_ranges/:id/edit', to: 'mountain_ranges#edit'
+  patch '/mountain_ranges/:id', to: 'mountain_ranges#update'
 
   get '/mountains', to: 'mountains#index'
   get '/mountains/new', to: 'mountains#new'
