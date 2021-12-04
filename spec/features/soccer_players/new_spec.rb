@@ -24,26 +24,27 @@ RSpec.describe 'New Soccer Player' do
     @ron_l = @am.soccer_players.create!(name: 'Ron L', homegrown_player: true, games_played: 104)
   end
 
-  describe 'As a visitor' do
-    describe ' When I visit the soccer teams, soccer player index there is a link' do
-      it 'I can create a new soccer player for that team' do
-        visit "/soccer_teams/#{@cad.id}/soccer_players"
+describe 'As a visitor' do
+  describe ' When I visit the soccer teams, soccer player index there is a link' do
+    it 'I can create a new soccer player for that team' do
+      visit "/soccer_teams/#{@cad.id}/soccer_players"
 
-        click_link 'Add another Soccer Player'
+      click_link 'Add another Soccer Player'
 
-        expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players/new")
+      expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players/new")
 
-        fill_in('name', with: 'Chris H')
-        fill_in('homegrown_player', with: true)
-        fill_in('games_played', with: 88)
+      fill_in('name', with: 'Chris H')
+      fill_in('homegrown_player', with: true)
+      fill_in('games_played', with: 88)
 
-        click_on('Create Soccer Player')
+      click_on('Create Soccer Player')
 
-        expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players")
-        expect(page).to have_content("Chris H")
-        expect(page).to have_content(true)
-        expect(page).to have_content(88)
-      end
+
+      expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players")
+      expect(page).to have_content("Chris H")
+      expect(page).to have_content(true)
+      expect(page).to have_content(88)
     end
   end
+end
 end

@@ -7,11 +7,14 @@ class SoccerPlayersController < ApplicationController
   end
 
   def create
+    binding.pry
+
+
     soccer_player = SoccerPlayer.new({
-      name: params[:soccer_players][:name],
-      homegrown_player: params[:soccer_players][:homegrown_player],
-      games_played: params[:soccer_players][:games_played],
-      soccer_teams_id: params[:soccer_players][:soccer_teams_id]
+      name: params[:name],
+      homegrown_player: params[:homegrown_player],
+      games_played: params[:games_played],
+      soccer_teams_id: params[:soccer_team_id]
       })
 
     soccer_player.save

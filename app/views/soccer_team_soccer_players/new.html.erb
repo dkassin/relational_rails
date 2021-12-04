@@ -1,4 +1,4 @@
-<%= form_with url: "/soccer_teams/#{@soccer_teams.id}/soccer_players", method: :post, local: true do |form| %>
+<%= form_with url: "/soccer_teams/#{@soccer_team.id}/soccer_players/", method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.label :homegrown_player %>

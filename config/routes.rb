@@ -7,14 +7,17 @@ Rails.application.routes.draw do
   get '/soccer_teams/:id', to: 'soccer_teams#show'
   get '/soccer_teams/:id/edit', to: 'soccer_teams#edit'
 
+
   get '/soccer_teams/:id/soccer_players', to: 'soccer_team_soccer_players#index'
   get '/soccer_teams/:id/soccer_players/new', to: 'soccer_team_soccer_players#new'
+  post '/soccer_teams/:id/soccer_players/new', to: 'soccer_team_soccer_players#new'
   post '/soccer_teams/:id/soccer_players', to: 'soccer_team_soccer_players#create'
 
   get '/soccer_players', to: 'soccer_players#index'
   get '/soccer_players/new', to: 'soccer_players#new'
   post '/soccer_players', to: 'soccer_players#create'
   get '/soccer_players/:id', to: 'soccer_players#show'
+
 
 
   get '/mountain_ranges', to: 'mountain_ranges#index'
