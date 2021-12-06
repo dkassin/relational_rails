@@ -4,7 +4,7 @@ RSpec.describe SoccerPlayer do
   it { should belong_to :soccer_team}
 
   describe 'class methods' do
-    describe 'should only display homegrown_player that are true' do
+
       before :each do
         @rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
         @bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
@@ -27,7 +27,7 @@ RSpec.describe SoccerPlayer do
         @sam_g = @am.soccer_players.create!(name: 'Sam G', homegrown_player: false, games_played: 224)
         @ron_l = @am.soccer_players.create!(name: 'Ron L', homegrown_player: true, games_played: 104)
       end
-      it ' only displays players that are homegrown' do !!!
+      it ' only displays players that are homegrown' do
         all_players = SoccerPlayer.homegrown_player_only
 
         expect(all_players.include?(@jay_c)).to eq true
@@ -39,6 +39,20 @@ RSpec.describe SoccerPlayer do
         expect(all_players.include?(@jimmy_g)).to eq false
         expect(all_players.include?(@tim_g)).to eq false
       end
-    end
+
+      it ' sorts soccer players by alphabetical order' do
+        all_players = SoccerPlayer.sorted
+        expected = [@cay_c,@jay_c,@jun_f,@rob_c,@romeo_f,@ron_l]
+
+        expect(all_players).to eq(expected)
+        expect(all_players.include?(@jay_c)).to eq true
+        expect(all_players.include?(@cay_c)).to eq true
+        expect(all_players.include?(@rob_c)).to eq true
+        expect(all_players.include?(@romeo_f)).to eq true
+        expect(all_players.include?(@jun_f)).to eq true
+        expect(all_players.include?(@ron_l)).to eq true
+        expect(all_players.include?(@jimmy_g)).to eq false
+        expect(all_players.include?(@tim_g)).to eq false
+      end
   end
 end

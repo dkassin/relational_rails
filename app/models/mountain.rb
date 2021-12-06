@@ -6,4 +6,8 @@ class Mountain < ApplicationRecord
       mountain.volcanic == true
     end
   end
+
+  def self.sorted
+    self.volcanic_only.sort_by {|mountain| mountain.name}
+  end
 end

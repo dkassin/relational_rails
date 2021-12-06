@@ -7,4 +7,8 @@ class SoccerPlayer < ApplicationRecord
       player.homegrown_player == true
     end
   end
+
+  def self.sorted
+    self.homegrown_player_only.sort_by {|player| player.name}
+  end
 end
