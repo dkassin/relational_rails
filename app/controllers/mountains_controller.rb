@@ -1,6 +1,6 @@
 class MountainsController < ApplicationController
   def index
-    @mountains = Mountain.all
+    @mountains = Mountain.volcanic_only
   end
 
   def new

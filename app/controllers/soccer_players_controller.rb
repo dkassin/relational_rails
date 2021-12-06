@@ -1,6 +1,6 @@
 class SoccerPlayersController < ApplicationController
   def index
-    @soccer_players = SoccerPlayer.all
+    @soccer_players = SoccerPlayer.homegrown_player_only
   end
 
   def new
