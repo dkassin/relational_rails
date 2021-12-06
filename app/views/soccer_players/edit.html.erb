@@ -1,0 +1,10 @@
+
+<%= form_with url: "/soccer_players/#{@soccer_player.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :homegrown_player %>
+  <%= form.text_field :homegrown_player %>
+  <%= form.label :games_played %>
+  <%= form.text_field :games_played %>
+  <%= form.submit 'Update Soccer Player' %>
+<% end %>

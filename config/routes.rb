@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/soccer_players/new', to: 'soccer_players#new'
   post '/soccer_players', to: 'soccer_players#create'
   get '/soccer_players/:id', to: 'soccer_players#show'
+  get '/soccer_players/:id/edit', to: 'soccer_players#edit'
+  patch '/soccer_players/:id', to: 'soccer_players#update'
 
 
 

@@ -1,5 +1,7 @@
-<a href="/soccer_player">Soccer Players Index</a>
+<a href="/soccer_players">Soccer Players Index</a>
 
-<h1><%= @soccer_players.name %></h1>
-<p><%= @soccer_players.homegrown_player %></p>
-<p><%= @soccer_players.games_played %></p>
+<h1><%= @soccer_player.name %></h1>
+<p><%= @soccer_player.homegrown_player %></p>
+<p><%= @soccer_player.games_played %></p>
+
+<a href= "/soccer_players/<%= @soccer_player.id %>/edit"> Update Soccer Player</a>
