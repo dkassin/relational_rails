@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'New Soccer Player' do
+RSpec.describe 'Update Soccer Player' do
   before :each do
     @rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
     @bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
@@ -25,7 +25,7 @@ RSpec.describe 'New Soccer Player' do
   end
 
 describe 'As a visitor' do
-  describe ' When I visit asoccer players show page,  there is a link' do
+  describe ' When I visit a soccer players show page,  there is a link' do
     it 'I can update the attributes of the soccer player' do
       visit "/soccer_players/#{@luis_c.id}"
 
