@@ -1,5 +1,5 @@
 class SoccerTeam < ApplicationRecord
-  has_many :soccer_players
+  has_many :soccer_players, :dependent => :destroy
 
   def self.sort_team
     self.all.sort_by {|team| team.created_at}

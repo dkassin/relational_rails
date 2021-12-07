@@ -39,5 +39,15 @@ RSpec.describe 'the mountain ranges show web page' do
     expect(current_path).to eq ("/mountain_ranges/#{@rocky.id}/mountains")
   end
 
+  it "gives a link to delete the mountain range and its mountains" do
+
+    visit "/mountain_ranges/#{@rocky.id}"
+
+    click_on "Delete"
+
+    visit "/mountain_ranges"
+    expect(page).to_not have_content(@rocky.name)
+    expect(page).to_not have_content(@rocky.included_states)
+  end
 
 end

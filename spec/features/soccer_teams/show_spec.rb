@@ -37,4 +37,15 @@ RSpec.describe 'the soccer teams show web page' do
     click_on "Soccer Players on Team"
     expect(current_path).to eq ("/soccer_teams/#{@rm.id}/soccer_players")
   end
+
+  it "gives a link to delete the soccer team and its players" do
+
+    visit "/soccer_teams/#{@rm.id}"
+
+    click_on "Delete"
+
+    visit "/soccer_teams"
+    expect(page).to_not have_content(@rm.name)
+    expect(page).to_not have_content(@rm.points)
+  end
 end

@@ -8,3 +8,4 @@
 
 <a href= "/soccer_teams/<%= @soccer_teams.id %>/soccer_players"> Soccer Players on Team</a>
 <a href= "/soccer_teams/<%= @soccer_teams.id %>/edit"> Update Soccer Team</a>
+<%= link_to "Delete", "/soccer_teams/#{@soccer_teams.id}", method: :delete %>
