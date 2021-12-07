@@ -44,4 +44,13 @@ RSpec.describe 'the mountain ranges index web page' do
     expect(current_path).to eq ("/mountain_ranges/new")
   end
 
+  it "it will show a link next to a mountain range, when clicked, it will take user to an edit page" do
+    visit "/mountain_ranges"
+
+    click_on ("Edit #{@rocky.name} info")
+
+    expect(current_path).to eq ("/mountain_ranges/#{@rocky.id}/edit/")
+
+  end
+
 end

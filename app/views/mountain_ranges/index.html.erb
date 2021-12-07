@@ -4,7 +4,10 @@
     <h1 style="color:yellow;text-decoration:underline;">All Mountain Ranges</h1>
 
     <% @mountain_ranges.each do |range| %>
-      <h2><a  style="color:green;"href="/mountain_ranges/<%= range.id %>"><%= range.name %></a></h2>
+      <h2>
+        <span><a  style="color:green;"href="/mountain_ranges/<%= range.id %>"><%= range.name %></a></span>
+        <span><a href="/mountain_ranges/<%=range.id%>/edit/"> Edit <%=range.name%> info </a>
+      </h2>
       <p>
         <span style="text-decoration:underline;color:white;">Has ski a ski resort:</span>
         <span style="color:blue;"> <%= range.has_ski_resort %></span>
