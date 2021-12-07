@@ -4,9 +4,11 @@ class MountainRangeMountainsController < ApplicationController
     @mountains = @mountain_range.mountains
     if params[:sort]
       @mountains = @mountains.sorted
+    elsif params[:elevation_count].present?
+      @mountains = @mountains.elevation_threshold(params[:elevation_count])
     else
       @mountains
-    end 
+    end
   end
 
   def new

@@ -1,3 +1,10 @@
+<%= form_with url: "/mountain_ranges/#{@mountain_range.id}/mountains", method: :get, local: true do |form| %>
+  <%= form.label :elevation_count %>
+  <%= form.text_field :elevation_count %>
+  <%= form.submit 'Submit' %>
+<% end %>
+
+
 <% @mountains.each do |mountain| %>
   <p><%= mountain.name %></p>
   <p><%= mountain.volcanic %></p>
