@@ -8,9 +8,9 @@ class MountainRangesController < ApplicationController
 
   def create
     mountain_range = MountainRange.new({
-      name: params[:mountain_ranges][:name],
-      has_ski_resort: params[:mountain_ranges][:has_ski_resort],
-      included_states: params[:mountain_ranges][:included_states]
+      name: params[:name],
+      has_ski_resort: params[:has_ski_resort],
+      included_states: params[:included_states]
       })
 
     mountain_range.save
@@ -20,5 +20,20 @@ class MountainRangesController < ApplicationController
 
   def show
     @mountain_range = MountainRange.find(params[:id])
+  end
+
+  def edit
+    @mountain_range = MountainRange.find(params[:id])
+  end
+  def update
+    mountain_ranges = MountainRange.find(params[:id])
+    mountain_ranges.update({
+      name: params[:name],
+      has_ski_resort: params[:has_ski_resort],
+      included_states: params[:included_states]
+      })
+
+    mountain_ranges.save
+    redirect_to "/mountain_ranges/#{mountain_ranges.id}"
   end
 end

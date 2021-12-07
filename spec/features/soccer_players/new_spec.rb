@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "SoccerTeam SoccerPlayers index" do
+RSpec.describe 'New Soccer Player' do
   before :each do
     @rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
     @bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
@@ -24,42 +24,27 @@ RSpec.describe "SoccerTeam SoccerPlayers index" do
     @ron_l = @am.soccer_players.create!(name: 'Ron L', homegrown_player: true, games_played: 104)
   end
 
-  it "shows all of the names of the players for the team" do
-    visit "/soccer_teams/#{@cad.id}/soccer_players"
+describe 'As a visitor' do
+  describe ' When I visit the soccer teams, soccer player index there is a link' do
+    it 'I can create a new soccer player for that team' do
+      visit "/soccer_teams/#{@cad.id}/soccer_players"
 
-    expect(page).to have_content(@luis_c.name)
-    expect(page).to have_content(@romeo_f.name)
-    expect(page).to have_content(@tim_g.name)
+      click_link 'Add another Soccer Player'
+
+      expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players/new")
+
+      fill_in('name', with: 'Chris H')
+      fill_in('homegrown_player', with: true)
+      fill_in('games_played', with: 88)
+
+      click_on('Create Soccer Player')
+
+
+      expect(current_path).to eq("/soccer_teams/#{@cad.id}/soccer_players")
+      expect(page).to have_content("Chris H")
+      expect(page).to have_content(true)
+      expect(page).to have_content(88)
+    end
   end
-
-  it "user will see soccer player index page, then click a button and it will sort alphabetically" do
-
-    visit "/soccer_teams/#{@bar.id}/soccer_players"
-
-    expect(page).to_not have_content(@jimmy_g.name)
-    expect(page).to_not have_content(@jimmy_g.games_played)
-
-    expect(page).to have_content(@rob_c.name)
-    expect(page).to have_content(@rob_c.homegrown_player)
-    expect(page).to have_content(@rob_c.games_played)
-
-
-    click_link 'Sort Soccer Players in Alphabetical order'
-
-    expect(current_path).to eq("/soccer_teams/#{@bar.id}/soccer_players/")
-
-    expect(@cay_c.name).to appear_before(@jose_r.name)
-    expect(@jose_r.name).to appear_before(@rob_c.name)
-  end
-
-  it "it will show a link next to a soccer player, when clicked, it will take user to an edit page" do
-    visit "/soccer_teams/#{@bar.id}/soccer_players"
-
-    click_link ("edit #{@rob_c.name.downcase} info")
-
-    expect(current_path).to eq ("/soccer_players/#{@rob_c.id}/edit/")
-
-  end
-
-
+end
 end

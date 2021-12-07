@@ -23,4 +23,26 @@ RSpec.describe "MountainRange Mountains index" do
     expect(page).to have_content(@bard.name)
     expect(page).to have_content(@herman.name)
   end
+
+  it "user will see mountain range index page, then click a button and it will sort alphabetically" do
+
+    visit "/mountain_ranges/#{@rocky.id}/mountains"
+
+    expect(page).to_not have_content(@mitchell.name)
+    expect(page).to_not have_content(@mitchell.elevation)
+
+    expect(page).to have_content(@pikes.name)
+    expect(page).to have_content(@pikes.volcanic)
+    expect(page).to have_content(@pikes.elevation)
+
+
+    click_link 'Sort Mountains in Alphabetical order'
+
+    expect(current_path).to eq("/mountain_ranges/#{@rocky.id}/mountains/")
+
+    expect(@bard.name).to appear_before(@longs.name)
+    expect(@longs.name).to appear_before(@herman.name)
+    expect(@herman.name).to appear_before(@pikes.name)
+  end
+
 end

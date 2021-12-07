@@ -1,0 +1,9 @@
+<%= form_with url: "/soccer_teams/#{@soccer_team.id}/soccer_players/", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :homegrown_player %>
+  <%= form.text_field :homegrown_player %>
+  <%= form.label :games_played %>
+  <%= form.text_field :games_played %>
+  <%= form.submit 'Create Soccer Player' %>
+<% end %>

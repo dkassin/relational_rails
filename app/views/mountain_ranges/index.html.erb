@@ -4,7 +4,10 @@
     <h1 style="color:yellow;text-decoration:underline;">All Mountain Ranges</h1>
 
     <% @mountain_ranges.each do |range| %>
-      <h2><a  style="color:green;"href="/mountain_ranges/<%= range.id %>"><%= range.name %></a></h2>
+      <h2>
+        <span><a  style="color:green;"href="/mountain_ranges/<%= range.id %>"><%= range.name %></a></span>
+        <span><a href="/mountain_ranges/<%=range.id%>/edit/"> Edit <%=range.name%> info </a>
+      </h2>
       <p>
         <span style="text-decoration:underline;color:white;">Has ski a ski resort:</span>
         <span style="color:blue;"> <%= range.has_ski_resort %></span>
@@ -18,6 +21,6 @@
         <span style="color:blue;"> <%= range.created_at %></span>
       </p>
     <% end %><br><br>
-    <a href="/mountain_ranges/new"><input type="submit" style="font-size:20px;font-weight:bold;color:yellow;background-color:black" value="Add another Mountain Range"/></a>
+    <a href="/mountain_ranges/new"> Add another Mountain Range</a>
   </body>
 </html>

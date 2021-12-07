@@ -1,6 +1,6 @@
 class MountainsController < ApplicationController
   def index
-    @mountains = Mountain.all
+    @mountains = Mountain.volcanic_only
   end
 
   def new
@@ -20,6 +20,22 @@ class MountainsController < ApplicationController
 
   def show
     @mountain = Mountain.find(params[:id])
+  end
+
+  def edit
+    @mountain = Mountain.find(params[:id])
+  end
+
+  def update
+    mountain = Mountain.find(params[:id])
+    mountain.update(mountain_params)
+    redirect_to "/mountains/#{mountain.id}"
+  end
+
+  private
+
+  def mountain_params
+    params.permit(:name, :volcanic, :elevation)
   end
 
 end

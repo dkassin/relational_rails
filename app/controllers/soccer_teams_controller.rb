@@ -7,10 +7,11 @@ class SoccerTeamsController < ApplicationController
   end
 
   def create
-    soccer_team = SoccerTeam.new({
-      name: params[:soccer_teams][:name],
-      qualified_champ_league: params[:soccer_teams][:qualified_champ_league],
-      points: params[:soccer_teams][:points]
+
+    soccer_team = SoccerTeam.create({
+      name: params[:name],
+      qualified_champ_league: params[:qualified_champ_league],
+      points: params[:points]
       })
 
     soccer_team.save
@@ -20,6 +21,23 @@ class SoccerTeamsController < ApplicationController
 
   def show
     @soccer_teams = SoccerTeam.find(params[:id])
+  end
+
+  def edit
+    @soccer_teams = SoccerTeam.find(params[:id])
+  end
+
+  def update
+    soccer_teams = SoccerTeam.find(params[:id])
+    soccer_teams.update({
+      name: params[:name],
+      qualified_champ_league: params[:qualified_champ_league],
+      points: params[:points]
+      })
+
+    soccer_teams.save
+
+    redirect_to "/soccer_teams/#{soccer_teams.id}"
   end
 
 end

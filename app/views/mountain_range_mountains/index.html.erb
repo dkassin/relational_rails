@@ -1,3 +1,8 @@
 <% @mountains.each do |mountain| %>
-<p><%= mountain.name %></p>
+  <p><%= mountain.name %></p>
+  <p><%= mountain.volcanic %></p>
+  <p><%= mountain.elevation %></p>
 <% end %>
+
+<a href= "/mountain_ranges/<%= @mountain_range.id %>/mountains/new"> Add another Mountain</a>
+<a href= "/mountain_ranges/<%= @mountain_range.id %>/mountains/?sort=asc"> Sort Mountains in Alphabetical order</a>
