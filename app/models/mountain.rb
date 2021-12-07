@@ -8,6 +8,6 @@ class Mountain < ApplicationRecord
   end
 
   def self.sorted
-    self.volcanic_only.sort_by {|mountain| mountain.name}
+    self.all.sort_by {|mountain| mountain.name}
   end
 end

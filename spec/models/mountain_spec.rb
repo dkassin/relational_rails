@@ -33,16 +33,9 @@ RSpec.describe Mountain do
 
       it ' sorts mountains by alphabetical order' do
         all_mountains = Mountain.sorted
-        expected = [@longs,@mitchell,@pikes]
+        expected = [@bard,@longs,@herman,@katahdin,@mitchell,@washington,@pikes]
 
         expect(all_mountains).to eq(expected)
-        expect(all_mountains.include?(@pikes)).to eq true
-        expect(all_mountains.include?(@longs)).to eq true
-        expect(all_mountains.include?(@mitchell)).to eq true
-        expect(all_mountains.include?(@bard)).to eq false
-        expect(all_mountains.include?(@herman)).to eq false
-        expect(all_mountains.include?(@washington)).to eq false
-        expect(all_mountains.include?(@katahdin)).to eq false
       end
   end
 end

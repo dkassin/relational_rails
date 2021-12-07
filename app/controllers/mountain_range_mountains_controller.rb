@@ -2,6 +2,11 @@ class MountainRangeMountainsController < ApplicationController
   def index
     @mountain_range = MountainRange.find(params[:id])
     @mountains = @mountain_range.mountains
+    if params[:sort]
+      @mountains = @mountains.sorted
+    else
+      @mountains
+    end 
   end
 
   def new
