@@ -2,6 +2,11 @@ class SoccerTeamSoccerPlayersController < ApplicationController
   def index
     @soccer_team = SoccerTeam.find(params[:id])
     @soccer_players = @soccer_team.soccer_players
+    if params[:sort]
+      @soccer_players = @soccer_players.sorted
+    else
+      @soccer_players
+    end
   end
 
   def new

@@ -31,4 +31,25 @@ RSpec.describe "SoccerTeam SoccerPlayers index" do
     expect(page).to have_content(@romeo_f.name)
     expect(page).to have_content(@tim_g.name)
   end
+
+  it "user will see soccer player index page, then click a button and it will sort alphabetically" do
+
+    visit "/soccer_teams/#{@bar.id}/soccer_players"
+
+    expect(page).to_not have_content(@jimmy_g.name)
+    expect(page).to_not have_content(@jimmy_g.games_played)
+
+    expect(page).to have_content(@rob_c.name)
+    expect(page).to have_content(@rob_c.homegrown_player)
+    expect(page).to have_content(@rob_c.games_played)
+
+
+    click_link 'Sort Soccer Players in Alphabetical order'
+
+    expect(current_path).to eq("/soccer_teams/#{@bar.id}/soccer_players/")
+
+    expect(@cay_c.name).to appear_before(@jose_r.name)
+    expect(@jose_r.name).to appear_before(@rob_c.name)
+  end
+
 end

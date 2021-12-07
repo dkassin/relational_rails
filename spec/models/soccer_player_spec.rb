@@ -42,17 +42,9 @@ RSpec.describe SoccerPlayer do
 
       it ' sorts soccer players by alphabetical order' do
         all_players = SoccerPlayer.sorted
-        expected = [@cay_c,@jay_c,@jun_f,@rob_c,@romeo_f,@ron_l]
+        expected = [@cay_c,@jay_c,@jimmy_g,@jose_r,@jun_f,@luis_c,@rob_c,@romeo_f,@ron_l,@sam_g,@tim_g]
 
         expect(all_players).to eq(expected)
-        expect(all_players.include?(@jay_c)).to eq true
-        expect(all_players.include?(@cay_c)).to eq true
-        expect(all_players.include?(@rob_c)).to eq true
-        expect(all_players.include?(@romeo_f)).to eq true
-        expect(all_players.include?(@jun_f)).to eq true
-        expect(all_players.include?(@ron_l)).to eq true
-        expect(all_players.include?(@jimmy_g)).to eq false
-        expect(all_players.include?(@tim_g)).to eq false
       end
   end
 end

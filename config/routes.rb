@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   patch '/soccer_players/:id', to: 'soccer_players#update'
 
 
-
   get '/mountain_ranges', to: 'mountain_ranges#index'
   get '/mountain_ranges/new', to: 'mountain_ranges#new'
   post '/mountain_ranges', to: 'mountain_ranges#create'

@@ -1,6 +1,14 @@
 class SoccerPlayersController < ApplicationController
-  def index
+  def initialize
     @soccer_players = SoccerPlayer.homegrown_player_only
+  end
+
+  def index
+    if params[:sort]
+      @soccer_players = SoccerPlayer.sorted
+    else
+      @soccer_players
+    end
   end
 
   def new
