@@ -1,5 +1,8 @@
 <% @soccer_players.each do |player| %>
-  <p><%= player.name %></p>
+  <p>
+    <span><%= player.name %></span>
+    <span><a href="/soccer_players/<%=player.id%>/edit/">edit <%=player.name.downcase%> info</a></span>
+  </p>
   <p><%= player.homegrown_player %></p>
   <p><%= player.games_played %></p>
 <% end %>

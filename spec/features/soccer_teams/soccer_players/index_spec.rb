@@ -52,4 +52,14 @@ RSpec.describe "SoccerTeam SoccerPlayers index" do
     expect(@jose_r.name).to appear_before(@rob_c.name)
   end
 
+  it "it will show a link next to a soccer player, when clicked, it will take user to an edit page" do
+    visit "/soccer_teams/#{@bar.id}/soccer_players"
+
+    click_link ("edit #{@rob_c.name.downcase} info")
+
+    expect(current_path).to eq ("/soccer_players/#{@rob_c.id}/edit/")
+
+  end
+
+
 end

@@ -4,7 +4,10 @@
     <h1 style="color:blue;text-decoration:underline;">All Soccer Players</h1>
 
     <% @soccer_players.each do |player| %>
-      <h2><a  style="color:green;"href="/soccer_players/<%= player.id %>"><%= player.name %></a></h2>
+      <h2>
+        <span><a  style="color:green;"href="/soccer_players/<%= player.id %>"><%= player.name %></a></span>
+        <span><a href="/soccer_players/<%=player.id%>/edit/">Edit <%=player.name.downcase%> info</a></span>
+      </h2>
       <p>
         <span style="text-decoration:underline;color:white;">If this is a homegrown player:</span>
         <span style="color:blue;"> <%= player.homegrown_player %></span>
@@ -17,6 +20,6 @@
     <a href="/soccer_players/new"><input type="submit" style="font-size:20px;font-weight:bold;color:blue;" value="Add another soccer player"/></a><br><br>
     <a style="color:white;" href="/soccer_players">Soccer Player Index</a>
 
-    <%= link_to  'Sort Soccer Players in Alphabetical order', '/soccer_players/?sort=asc' %>
+
   </body>
 </html>
