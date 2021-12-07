@@ -5,3 +5,4 @@
 <p><%= @soccer_player.games_played %></p>
 
 <a href= "/soccer_players/<%= @soccer_player.id %>/edit"> Update Soccer Player</a>
+<%= link_to "Delete", "/soccer_players/#{@soccer_player.id}", method: :delete %>

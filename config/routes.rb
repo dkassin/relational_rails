@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/soccer_players/new', to: 'soccer_players#new'
   post '/soccer_players', to: 'soccer_players#create'
   get '/soccer_players/:id', to: 'soccer_players#show'
+  delete '/soccer_players/:id', to: 'soccer_players#destroy'
   get '/soccer_players/:id/edit', to: 'soccer_players#edit'
   patch '/soccer_players/:id', to: 'soccer_players#update'
 
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   get '/mountains/new', to: 'mountains#new'
   post '/mountains', to: 'mountains#create'
   get '/mountains/:id', to: "mountains#show"
+  delete '/mountains/:id', to: 'mountains#destroy'
   get '/mountains/:id/edit', to: "mountains#edit"
   patch '/mountains/:id', to: "mountains#update"
 

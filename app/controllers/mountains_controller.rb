@@ -32,6 +32,14 @@ class MountainsController < ApplicationController
     redirect_to "/mountains/#{mountain.id}"
   end
 
+  def destroy
+    mountain = Mountain.find(params[:id])
+    mountain.destroy
+
+    redirect_to "/mountains"
+  end
+
+
   private
 
   def mountain_params
