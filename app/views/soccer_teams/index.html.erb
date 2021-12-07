@@ -4,7 +4,10 @@
     <h1 style="color:blue;text-decoration:underline;">All Soccer Teams</h1>
 
     <% @soccer_teams.each do |team| %>
-      <h2><a  style="color:green;"href="/soccer_teams/<%= team.id %>"><%= team.name %></a></h2>
+      <h2>
+        <span><a  style="color:green;"href="/soccer_teams/<%= team.id %>"><%= team.name %></a></span>
+        <span><a href="/soccer_teams/<%=team.id%>/edit/"> Edit <%=team.name%> info </a>
+      </h2>
       <p>
         <span style="text-decoration:underline;color:blue;">Qualified for the Champions League?</span>
         <span style="color:blue;"> <%= team.qualified_champ_league %></span>

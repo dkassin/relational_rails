@@ -46,4 +46,14 @@ RSpec.describe 'the soccer teams index web page' do
     expect(current_path).to eq ("/soccer_teams/new")
   end
 
+  it "it will show a link next to a team name, when clicked, it will take user to an edit page" do
+    visit "/soccer_teams"
+
+    click_on ("Edit #{@rm.name} info")
+
+    expect(current_path).to eq ("/soccer_teams/#{@rm.id}/edit/")
+
+  end
+
+
 end
