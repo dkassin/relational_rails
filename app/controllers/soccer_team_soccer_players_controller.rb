@@ -29,8 +29,8 @@ class SoccerTeamSoccerPlayersController < ApplicationController
   end
 
   def destroy
+
     soccer_player = SoccerPlayer.find(params[:id])
-    binding.pry
     soccer_player.destroy
 
     redirect_to "/soccer_players"
