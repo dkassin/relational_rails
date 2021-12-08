@@ -6,7 +6,8 @@
     <% @soccer_players.each do |player| %>
       <h2>
         <span><a  style="color:green;"href="/soccer_players/<%= player.id %>"><%= player.name %></a></span>
-        <span><a href="/soccer_players/<%=player.id%>/edit/">Edit <%=player.name.downcase%> info</a></span>
+        <span><a href="/soccer_players/<%=player.id%>/edit/">edit <%=player.name.downcase%> info</a></span>
+        <span><%= link_to "Delete #{player.name.downcase}", "/soccer_players/#{player.id}", method: :delete %></span>
       </h2>
       <p>
         <span style="text-decoration:underline;color:white;">If this is a homegrown player:</span>

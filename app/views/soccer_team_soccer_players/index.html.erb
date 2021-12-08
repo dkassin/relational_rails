@@ -8,6 +8,7 @@
   <p>
     <span><%= player.name %></span>
     <span><a href="/soccer_players/<%=player.id%>/edit/">edit <%=player.name.downcase%> info</a></span>
+    <span><%= link_to "Delete #{player.name.downcase}", "/soccer_teams/#{@soccer_team.id}/soccer_players/#{player.id}", method: :delete %></span>
   </p>
   <p><%= player.homegrown_player %></p>
   <p><%= player.games_played %></p>
