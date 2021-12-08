@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   get '/soccer_players', to: 'soccer_players#index'
   get '/soccer_players/new', to: 'soccer_players#new'
   post '/soccer_players', to: 'soccer_players#create'
-  delete '/soccer_players/:id', to: 'soccer_players#destroy'
   get '/soccer_players/:id', to: 'soccer_players#show'
-  get '/soccer_players/:id/edit', to: 'soccer_players#edit'
   patch '/soccer_players/:id', to: 'soccer_players#update'
+  delete '/soccer_players/:id', to: 'soccer_players#destroy'
+  get '/soccer_players/:id/edit', to: 'soccer_players#edit'
+
 
 
   get '/mountain_ranges', to: 'mountain_ranges#index'

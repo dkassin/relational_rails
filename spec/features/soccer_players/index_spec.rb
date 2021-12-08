@@ -60,8 +60,9 @@ RSpec.describe 'the soccer players index web page' do
 
     visit "/soccer_players"
 
-    click_link ("Delete #{jimmy_g.name.downcase}")
-    
+    expect(page).to have_content(jimmy_g.name)
+    click_button ("Delete #{jimmy_g.name.downcase}")
+
     expect(current_path).to eq ("/soccer_players")
     expect(page).to_not have_content(jimmy_g.name)
   end
