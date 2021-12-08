@@ -7,3 +7,4 @@
 
 <a href= "/mountain_ranges/<%= @mountain_range.id %>/mountains"> Mountains in Mountain Range</a>
 <a href= "/mountain_ranges/<%= @mountain_range.id %>/edit"> Update Mountain Range</a>
+<%= link_to "Delete", "/mountain_ranges/#{@mountain_range.id}", method: :delete %>

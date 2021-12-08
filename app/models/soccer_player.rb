@@ -11,4 +11,9 @@ class SoccerPlayer < ApplicationRecord
   def self.sorted
     self.all.sort_by {|player| player.name}
   end
+
+  def self.games_threshold(games)
+    SoccerPlayer.select(:name, :homegrown_player, :games_played)
+                .where("games_played > ?", games)
+  end
 end

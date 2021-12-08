@@ -1,3 +1,9 @@
+<%= form_with url: "/soccer_teams/#{@soccer_team.id}/soccer_players", method: :get, local: true do |form| %>
+  <%= form.label :games %>
+  <%= form.text_field :games %>
+  <%= form.submit 'Submit' %>
+<% end %>
+
 <% @soccer_players.each do |player| %>
   <p>
     <span><%= player.name %></span>

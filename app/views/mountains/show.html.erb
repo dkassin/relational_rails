@@ -5,3 +5,4 @@
 <p><%= @mountain.elevation %></p>
 
 <a href= "/mountains/<%= @mountain.id %>/edit"> Update Mountain</a>
+<%= link_to "Delete", "/mountains/#{@mountain.id}", method: :delete %>

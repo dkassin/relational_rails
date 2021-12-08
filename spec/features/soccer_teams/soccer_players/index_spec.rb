@@ -61,5 +61,16 @@ RSpec.describe "SoccerTeam SoccerPlayers index" do
 
   end
 
+  it "there will be a form to enter a number of games played and only return players that have more" do
+    visit "/soccer_teams/#{@bar.id}/soccer_players"
 
+    fill_in('games', with: '75')
+    click_on('Submit')
+
+    expect(current_path).to eq ("/soccer_teams/#{@bar.id}/soccer_players")
+    expect(page).to have_content(@cay_c.name)
+    expect(page).to_not have_content(@rob_c.name)
+    expect(page).to_not have_content(@jose_r.name)
+
+  end
 end

@@ -41,6 +41,13 @@ class SoccerPlayersController < ApplicationController
     redirect_to "/soccer_players/#{soccer_player.id}"
   end
 
+  def destroy
+    soccer_player = SoccerPlayer.find(params[:id])
+    soccer_player.destroy
+
+    redirect_to "/soccer_players"
+  end
+
   private
 
   def soccer_player_params

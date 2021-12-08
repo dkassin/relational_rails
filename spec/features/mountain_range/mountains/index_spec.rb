@@ -45,4 +45,18 @@ RSpec.describe "MountainRange Mountains index" do
     expect(@herman.name).to appear_before(@pikes.name)
   end
 
+  it "there will be a form to enter a number of games played and only return players that have more" do
+    visit "/mountain_ranges/#{@rocky.id}/mountains"
+
+    fill_in('elevation_count', with: '14000')
+    click_on('Submit')
+
+    expect(current_path).to eq ("/mountain_ranges/#{@rocky.id}/mountains")
+    expect(page).to have_content(@pikes.name)
+    expect(page).to have_content(@longs.name)
+    expect(page).to_not have_content(@bard.name)
+    expect(page).to_not have_content(@herman.name)
+
+  end
+
 end

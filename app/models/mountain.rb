@@ -10,4 +10,10 @@ class Mountain < ApplicationRecord
   def self.sorted
     self.all.sort_by {|mountain| mountain.name}
   end
+
+  def self.elevation_threshold(elevation_count)
+    Mountain.select(:name, :volcanic, :elevation)
+                .where("elevation > ?", elevation_count)
+  end
+
 end

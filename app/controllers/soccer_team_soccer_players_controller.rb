@@ -4,6 +4,8 @@ class SoccerTeamSoccerPlayersController < ApplicationController
     @soccer_players = @soccer_team.soccer_players
     if params[:sort]
       @soccer_players = @soccer_players.sorted
+    elsif params[:games].present?
+      @soccer_players = @soccer_players.games_threshold(params[:games])
     else
       @soccer_players
     end
