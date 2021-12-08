@@ -11,7 +11,7 @@ class Mountain < ApplicationRecord
   end
 
   def self.elevation_threshold(elevation_count)
-    Mountain.select(:name, :volcanic, :elevation)
+    Mountain.select(:id, :name, :volcanic, :elevation)
                 .where("elevation > ?", elevation_count)
   end
 

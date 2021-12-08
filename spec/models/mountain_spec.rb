@@ -37,5 +37,12 @@ RSpec.describe Mountain do
 
         expect(all_mountains).to eq(expected)
       end
+
+      it 'selects mountains that are over a given elevation' do
+        all_high_elevation = Mountain.elevation_threshold(10000)
+        expected = [@pikes,@longs,@bard]
+
+        expect(all_high_elevation).to eq(expected)
+      end
   end
 end

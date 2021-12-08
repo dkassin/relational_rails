@@ -12,7 +12,7 @@ class SoccerPlayer < ApplicationRecord
   end
 
   def self.games_threshold(games)
-    SoccerPlayer.select(:name, :homegrown_player, :games_played)
+    SoccerPlayer.select(:id, :name, :homegrown_player, :games_played)
                 .where("games_played > ?", games)
   end
 end
