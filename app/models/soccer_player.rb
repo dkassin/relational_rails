@@ -3,13 +3,12 @@ class SoccerPlayer < ApplicationRecord
 
 
   def self.homegrown_player_only
-    self.all.select do |player|
-      player.homegrown_player == true
-    end
+    SoccerPlayer.select(:id,:name,:homegrown_player, :games_played)
+                .where(homegrown_player: true)
   end
 
   def self.sorted
-    self.all.sort_by {|player| player.name}
+    SoccerPlayer.order(:name)
   end
 
   def self.games_threshold(games)
