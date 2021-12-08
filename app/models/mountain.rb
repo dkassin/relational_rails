@@ -2,8 +2,8 @@ class Mountain < ApplicationRecord
   belongs_to :mountain_range
 
   def self.volcanic_only
-    Mountain.select(:id, :name, :has_ski_resort, :included_states)
-            .where(has_ski_resort: true)
+    Mountain.select(:id, :name, :volcanic, :elevation)
+            .where(volcanic: true)
   end
 
   def self.sorted
