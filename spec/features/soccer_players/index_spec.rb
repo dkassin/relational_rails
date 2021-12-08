@@ -51,4 +51,20 @@ RSpec.describe 'the soccer players index web page' do
 
   end
 
+  it "it will show a link next to a soccer player, when clicked, it will delete the player" do
+    rm = SoccerTeam.create!(name: 'Real Madrid', qualified_champ_league: true, points: 23)
+    bar = SoccerTeam.create!(name: 'Barcelona', qualified_champ_league: true, points: 13)
+
+    jimmy_g = rm.soccer_players.create!(name: 'Jimmy G', homegrown_player: true, games_played: 23)
+    rob_c = bar.soccer_players.create!(name: 'Rob C', homegrown_player: true, games_played: 64)
+
+    visit "/soccer_players"
+
+    expect(page).to have_content(jimmy_g.name)
+    click_button ("Delete #{jimmy_g.name.downcase}")
+
+    expect(current_path).to eq ("/soccer_players")
+    expect(page).to_not have_content(jimmy_g.name)
+  end
+
 end

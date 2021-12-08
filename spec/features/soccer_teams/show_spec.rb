@@ -46,6 +46,5 @@ RSpec.describe 'the soccer teams show web page' do
 
     visit "/soccer_teams"
     expect(page).to_not have_content(@rm.name)
-    expect(page).to_not have_content(@rm.points)
   end
 end

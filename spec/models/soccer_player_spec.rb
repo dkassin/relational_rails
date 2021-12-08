@@ -46,5 +46,12 @@ RSpec.describe SoccerPlayer do
 
         expect(all_players).to eq(expected)
       end
+
+      it 'selects soccer players that have played a certain amount of games' do
+        all_played_alot = SoccerPlayer.games_threshold(200)
+        expected = [@jun_f,@sam_g]
+
+        expect(all_played_alot).to eq(expected)
+      end
   end
 end

@@ -4,28 +4,11 @@ class SoccerPlayersController < ApplicationController
   end
 
   def index
-    if params[:sort]
-      @soccer_players = SoccerPlayer.sorted
-    else
-      @soccer_players
-    end
   end
 
   def new
   end
 
-  def create
-
-    soccer_player = SoccerPlayer.new({
-      name: params[:name],
-      homegrown_player: params[:homegrown_player],
-      games_played: params[:games_played],
-      soccer_teams_id: params[:soccer_team_id]
-      })
-
-    soccer_player.save
-    redirect_to '/soccer_players'
-  end
 
   def show
     @soccer_player = SoccerPlayer.find(params[:id])

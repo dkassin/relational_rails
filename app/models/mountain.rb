@@ -2,17 +2,16 @@ class Mountain < ApplicationRecord
   belongs_to :mountain_range
 
   def self.volcanic_only
-    self.all.select do |mountain|
-      mountain.volcanic == true
-    end
+    Mountain.select(:id, :name, :volcanic, :elevation)
+            .where(volcanic: true)
   end
 
   def self.sorted
-    self.all.sort_by {|mountain| mountain.name}
+    Mountain.order(:name)
   end
 
   def self.elevation_threshold(elevation_count)
-    Mountain.select(:name, :volcanic, :elevation)
+    Mountain.select(:id, :name, :volcanic, :elevation)
                 .where("elevation > ?", elevation_count)
   end
 

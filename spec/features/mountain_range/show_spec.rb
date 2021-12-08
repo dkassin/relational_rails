@@ -47,7 +47,7 @@ RSpec.describe 'the mountain ranges show web page' do
 
     visit "/mountain_ranges"
     expect(page).to_not have_content(@rocky.name)
-    expect(page).to_not have_content(@rocky.included_states)
+
   end
 
 end

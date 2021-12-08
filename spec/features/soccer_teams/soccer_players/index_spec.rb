@@ -73,4 +73,16 @@ RSpec.describe "SoccerTeam SoccerPlayers index" do
     expect(page).to_not have_content(@jose_r.name)
 
   end
+
+  it "it will show a link next to a soccer teams soccer players index, when clicked, it will delete the player" do
+
+
+    visit "/soccer_teams/#{@bar.id}/soccer_players"
+
+    click_link ("Delete #{@rob_c.name.downcase}")
+
+    expect(current_path).to eq ("/soccer_players")
+
+    expect(page).to_not have_content(@rob_c.name)
+  end
 end
