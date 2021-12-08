@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/soccer_teams/:id', to: 'soccer_teams#show'
   delete '/soccer_teams/:id', to: 'soccer_teams#destroy'
   get '/soccer_teams/:id/edit', to: 'soccer_teams#edit'
+  patch '/soccer_teams/:id', to: 'soccer_teams#update'
 
 
   get '/soccer_teams/:id/soccer_players', to: 'soccer_team_soccer_players#index'
