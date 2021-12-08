@@ -55,5 +55,14 @@ RSpec.describe 'the soccer teams index web page' do
 
   end
 
+  it "it will show a link next to a team name, when clicked, it will delete the team" do
+    visit "/soccer_teams"
+
+    click_on ("delete #{@rm.name}")
+
+    expect(current_path).to eq ("/soccer_teams")
+    expect(page).to_not have_content(@rm.name)
+  end
+
 
 end
